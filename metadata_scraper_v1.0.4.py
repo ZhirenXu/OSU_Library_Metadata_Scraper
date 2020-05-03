@@ -3,9 +3,9 @@ import urllib.request
 import csv
 from bs4 import BeautifulSoup
 
-# Contain all category name a collection probably has in DC.
-# Add/Delete keywords in the list to create new .csv w/ more/less category. Don't forget to delete corresponding liTag!
-# Follow the format when change this list.
+## Contain all category name a collection probably has in DC.
+## Add/Delete keywords in the list to create new .csv w/ more/less category. Don't forget to delete corresponding liTag!
+## Follow the format when change this list.
 categoryList = ["Title", "internal id link", "Alternative title", "Resource Type", "Creator", "Contributor", "Genre", "Language",
 "Publisher", "Date created", "Date issued", "Date copyrighted", "Summary",
 "Description", "Staff notes", "Format", "Extent", "Measurements", "Repository",
@@ -25,7 +25,7 @@ liTagList = ["attribute attribute-alternative_title",
 "attribute attribute-material", "attribute attribute-rights_statement", "attribute attribute-rights_note", "attribute attribute-rights_holder",
 "attribute attribute-license", "attribute attribute-access_rights", "attribute attribute-handle"]
 
-# open csv file and read handler link, store in a list
+## open csv file and read handler link, store in a list
 # @param    csvName
 #           the file name user typed in
 # @return   urlList
@@ -40,7 +40,7 @@ def readCSV(csvName):
     urlList.pop(0)
     return urlList
 
-# find object title and handler, then store it into a list
+## find object title and handler, then store it into a list
 # @param    source
 #           html page that has been parsed by beautifulsoup
 # @param    valueList
@@ -53,31 +53,38 @@ def findObjectTitle(source, valueList):
     valueList.append(value[1:len(value) - 1])
     value = ""
 
-# find and store all contents of desired <li> tags according to categoryList
+## find and store all contents of desired <li> tags according to categoryList
 # @param    source
 #           html page that has been parsed by beautifulsoup
 # @param    liTagList
 #           a list contain 'class' attribution in <li> tag, use it to find correct <li> tag and its content
+# @param    valueList
+#           a list to store scraped attrs' value
 # @param    writer
 #           csv file writer for output
 def findCategoryValue(source, liTagList, valueList, writer):
-  content = ""
-  for liTag in liTagList:
-    result = source.findAll('li', attrs={'class': liTag})
-    # use ; to isolate multiple li tag contents
-    if len(result) > 1:
-      while len(result) > 0:
-        if result[0] is not None:
-          content += result[0].text
-          content += '|'
-          result.pop(0)
-      valueList.append(content[:len(content)-1])
-      content = ""
-    elif len(result) == 1:
-      valueList.append(result[0].text)
-    else:
-      valueList.append("null")
-  writer.writerow(valueList)
+    content = ""
+    for liTag in liTagList:
+        result = source.findAll('li', attrs={'class': liTag})
+        # use ; to isolate multiple li tag contents
+        if len(result) > 1:
+            while len(result) > 0:
+                if result[0] is not None:
+                    rawContent = result[0].text
+                    index = rawContent.find('\r\n')
+                    if index != -1:
+                        content += rawContent[:index]
+                    else:
+                        content += rawContent    
+                    content += '|'
+                    result.pop(0)
+            valueList.append(content[:len(content)-1])        
+            content = ""
+        elif len(result) == 1:
+            valueList.append(result[0].text)
+        else:
+            valueList.append("null")
+    writer.writerow(valueList)
 
 def main():
     categoryValue = []
@@ -98,7 +105,7 @@ def main():
         sys.exit()
     numOfURL = len(itemURL)
     print("There are ", numOfURL, " records in the input file.")
-    #open file for output
+    # open file for output
     outFile = open(fileOut, 'w', encoding = 'utf8', newline='')
     csvWriter = csv.writer(outFile)
     csvWriter.writerow(categoryList)
