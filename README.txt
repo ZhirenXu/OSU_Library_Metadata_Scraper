@@ -1,8 +1,8 @@
-******Metadata Scrapper v1.1.0******
+******Metadata Scrapper v1.1.1******
 Author: Zhiren Xu
-Publish data: 3/20/20
+Publish data: 6/1/20
 
 Instruction:
-	1. put csv file contain metadata's url in 'package' folder
-	2. run 'metaData_scraper_v1.1.0.py'
+	1. put csv file contain metadata's url in folder
+	2. run 'metaData_scraper_v1.1.1.py'
 	3. follow instructions on display
