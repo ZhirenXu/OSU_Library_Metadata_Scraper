@@ -8,6 +8,7 @@ def getCategoryList():
 "Collection", "Sub collection", "Source", "Provenance", "Related finding aid",
 "Related URL", "Identifier", "Call number", "Collection identifier", "Archival context",
 "Published in", "Subject", "Keyword", "Place (Topic)", "Time period (Topic)", "Material", 
-"Rights statement", "Rights note", "Rights holder", "License", "Access rights", "Permanent link"]
+"Rights statement", "Rights note", "Rights holder", "License", "Access rights", "Permanent link", "Preservation level", "Preservation level rationale",
+"Version", "Medium", "Syndicate"]
 
     return categoryList
