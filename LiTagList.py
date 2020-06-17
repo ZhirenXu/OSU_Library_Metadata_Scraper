@@ -13,7 +13,7 @@ def getLiTagList():
 "attribute attribute-collection_identifier", "attribute attribute-archival_unit", "attribute attribute-bibliographic_citation",
 "attribute attribute-subject", "attribute attribute-keyword", "attribute attribute-spatial", "attribute attribute-temporal",
 "attribute attribute-material", "attribute attribute-rights_statement", "attribute attribute-rights_note", "attribute attribute-rights_holder",
-"attribute attribute-license_cc", "attribute attribute-access_rights", "attribute attribute-handle", "attribute attribute-preservation_level",
+"attribute attribute-license_cc", "attribute attribute-access_right", "attribute attribute-handle", "attribute attribute-preservation_level",
 "attribute attribute-preservation_level_rationale", "attribute attribute-bibframe_version",
 "attribute attribute-medium", "attribute attribute-syndicate"]
 
