@@ -1,11 +1,11 @@
-## Metadata Scrapper v1.1.2
+## Metadata Scrapper v1.2.0
 Author: Zhiren Xu  
-Publish data: 6/17/20
+Publish data: 6/24/20
   
 Changelog:  
-	Fix one attribute name error that cause no data get scraped
+	Add login function so user can scrape data from private record
 
 Instruction:  
 	1. put csv file contain metadata's url in folder  
-	2. run 'metaData_scraper_v1.1.2.py'  
+	2. run 'metaData_scraper.py'  
 	3. follow instructions on display  
