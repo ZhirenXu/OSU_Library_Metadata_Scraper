@@ -1,9 +1,9 @@
-## Metadata Scrapper v1.2.0
+## Metadata Scrapper v1.2.1
 Author: Zhiren Xu  
-Publish data: 6/24/20
+Publish data: 8/12/20
   
 Changelog:  
-	Add login function so user can scrape data from private record
+	Add time consuming static
 
 Instruction:  
 	1. put csv file contain metadata's url in folder  
