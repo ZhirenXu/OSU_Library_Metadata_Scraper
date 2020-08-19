@@ -27,6 +27,9 @@ def login():
         response = browser.submit_selected()
         if response.status_code == 200 and len(response.text) == SuccessfulLogin:
             print("\nLogin Success!\n")
+            t_end = time.process_time()
+            print("Process Time: ", t_end - t_start)
+            return browser
         else:
             print("\nLogin Fail!\n")
             print("Would you want to try it again? Y/N: ", end = "")
@@ -34,11 +37,8 @@ def login():
             if userChoice == "N" or userChoice == "n":
                 sys.exit()
             elif userChoice == "Y" or userChoice == "y":
-                login()
-        t_end = time.process_time()
-        print("Process Time: ", t_end - t_start)
-        print("\n")
-    return browser
+                return 0
+        
 
 ## ask user to type in login info
 def getCreditential():
@@ -67,4 +67,3 @@ def wantLogin():
     if choice == 'Y' or choice == 'y':
         return True
     return False
-

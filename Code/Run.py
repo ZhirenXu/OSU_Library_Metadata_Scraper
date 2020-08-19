@@ -1,7 +1,6 @@
 import urllib.request
 import concurrent.futures
 from bs4 import BeautifulSoup
-from Code import FindObjectTitle
 from Code import FindCategoryValue
 import requests
 import time
@@ -32,7 +31,6 @@ def runProcessParallel(urlList, liTagList, outputFile, numOfUrl):
     with concurrent.futures.ThreadPoolExecutor(max_workers = 5) as executor:
         future_to_url = {executor.submit(loadUrl, url): url for url in urlList}
         for future in concurrent.futures.as_completed(future_to_url):
-           
             # original url link
             url = future_to_url[future]
             # opened url
@@ -66,7 +64,7 @@ def runProcessParallelLogin(session, urlList, liTagList, outputFile, numOfUrl):
     categoryValue = []
     i = 1
     
-    with concurrent.futures.ThreadPoolExecutor(max_workers = 10) as executor:
+    with concurrent.futures.ThreadPoolExecutor(max_workers = 5) as executor:
         future_to_url = {executor.submit(loadUrlSession, session, url): url for url in urlList}
         for future in concurrent.futures.as_completed(future_to_url):
             t_start = time.process_time()
@@ -77,9 +75,7 @@ def runProcessParallelLogin(session, urlList, liTagList, outputFile, numOfUrl):
             # load target digital collection in html parser
             soup = BeautifulSoup(html.text, 'html.parser')
             # find collection title
-            FindObjectTitle.findObjectTitle(soup, categoryValue)
-            # find original url link
-            categoryValue.append(url)
+            #FindObjectTitle.findObjectTitle(soup, categoryValue)
             # find attributes value
             FindCategoryValue.findCategoryValue(soup, liTagList, categoryValue, outputFile)
             print("We have successfully web-scraped ", i, " / ", numOfUrl, " records")

@@ -1,6 +1,5 @@
 from Code import Greeting
-from Code import CategoryList
-from Code import LiTagList
+from Code import Category
 from Code import SimpleCSV
 from Code import Run
 import concurrent.futures
@@ -13,11 +12,13 @@ def main(*argv):
     categoryList = []
     liTagList = []
     numOfUrl = 0
-
+    session = 0
+    
     Greeting.showInfo()
-    argv = Login.login()
-    categoryList = CategoryList.getCategoryList()
-    liTagList = LiTagList.getLiTagList()
+    while session == 0:
+        session = Login.login()
+    categoryList = Category.getCategoryList()
+    liTagList = Category.getLiTagList()
     csvIn = SimpleCSV.getCSVInput()
     csvOut = SimpleCSV.getCSVOutput()
     
@@ -27,10 +28,7 @@ def main(*argv):
     # open file for output
     outFile = open(csvOut, 'w', encoding = 'utf8', newline='')
     SimpleCSV.writeCSV(categoryList, outFile)
-    if argv == ():
-        Run.runProcessParallel(itemURL, liTagList, outFile, numOfUrl)
-    else:
-        Run.runProcessParallelLogin(argv, itemURL, liTagList, outFile, numOfUrl)
+    Run.runProcessParallelLogin(session, itemURL, liTagList, outFile, numOfUrl)
     outFile.close()
     Greeting.sysExit(csvOut)
     
