@@ -74,8 +74,8 @@ def runProcessParallelLogin(session, urlList, liTagList, outputFile, numOfUrl):
             html = future.result()
             # load target digital collection in html parser
             soup = BeautifulSoup(html.text, 'html.parser')
-            # find collection title
-            #FindObjectTitle.findObjectTitle(soup, categoryValue)
+            # find internal id link
+            categoryValue.append(url)
             # find attributes value
             FindCategoryValue.findCategoryValue(soup, liTagList, categoryValue, outputFile)
             print("We have successfully web-scraped ", i, " / ", numOfUrl, " records")

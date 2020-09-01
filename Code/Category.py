@@ -1,4 +1,5 @@
-categoryDict = {"Resource Type": "attribute attribute-resource_type",
+categoryDict = {"Internal ID Link": "id link",
+                "Resource Type": "attribute attribute-resource_type",
                 "Title": "Title",
                 "Alternative Title": "attribute attribute-alternative",
                 "Creator": "attribute attribute-creator",
@@ -40,10 +41,10 @@ categoryDict = {"Resource Type": "attribute attribute-resource_type",
                 "Rights Holder": "attribute attribute-rights_holder",
                 "License": "attribute attribute-license_cc",
                 "Access Rights": "attribute attribute-access_right",
-                "Permanent link": "attribute attribute-handle",
                 "Preservation level": "attribute attribute-preservation_level",
                 "Preservation level Rationale": "attribute attribute-preservation_level_rationale",
-                "Syndicate": "attribute attribute-syndicate"
+                "Syndicate": "attribute attribute-syndicate",
+                "Permanent link": "attribute attribute-handle"
                }
                 
 ##Return a list of category name we want to put in csv file
@@ -51,7 +52,6 @@ categoryDict = {"Resource Type": "attribute attribute-resource_type",
 #           The list contain all category name
 def getCategoryList():
     categoryList = categoryDict.keys()
-
     return categoryList
 
 def getLiTagList():

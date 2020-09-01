@@ -12,8 +12,10 @@ from Code import FindObjectTitle
 def findCategoryValue(source, liTagList, valueList, outFile):
     content = ""
     for liTag in liTagList:
+        #append object title
         if liTag == "Title":
             FindObjectTitle.findObjectTitle(source, valueList)
+        #other attributes
         elif liTag != "":
             result = source.findAll('li', attrs={'class': liTag})
             # use ; to isolate multiple li tag contents
@@ -32,6 +34,6 @@ def findCategoryValue(source, liTagList, valueList, outFile):
                 content = ""
             elif len(result) == 1:
                 valueList.append(result[0].text)
-            else:
+            elif liTag != "id link":
                 valueList.append("null")
     SimpleCSV.writeCSV(valueList, outFile)
