@@ -42,6 +42,7 @@ categoryDict = {"Resource Type": "attribute attribute-resource_type",
                 "Access Rights": "attribute attribute-access_right",
                 "Permanent link": "attribute attribute-handle",
                 "Preservation level": "attribute attribute-preservation_level",
+                "Preservation level Rationale": "attribute attribute-preservation_level_rationale",
                 "Syndicate": "attribute attribute-syndicate"
                }
                 
