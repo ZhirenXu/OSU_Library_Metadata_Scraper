@@ -3,8 +3,8 @@ import mechanicalsoup
 import sys
 import getpass
 import time
-# When login successful, the length of response text is 17228
-SuccessfulLogin = 17228
+# When login successful, this should include in the response
+SuccessfulLogin = "Signed in successfully"
 # when login is not vaild, the length of response text is 11864
 BadLogin = 11864
 
@@ -25,11 +25,9 @@ def login():
         browser["user[email]"] = crediential["Email"]
         browser["user[password]"] = crediential["Password"]
         response = browser.submit_selected()
-        if response.status_code == 200 and len(response.text) == SuccessfulLogin:
+        #print(response.text)
+        if (response.status_code == 200) and (SuccessfulLogin in response.text):
             print("\nLogin Success!\n")
-            t_end = time.process_time()
-            print("Process Time: ", t_end - t_start)
-            return browser
         else:
             print("\nLogin Fail!\n")
             print("Would you want to try it again? Y/N: ", end = "")
@@ -37,8 +35,11 @@ def login():
             if userChoice == "N" or userChoice == "n":
                 sys.exit()
             elif userChoice == "Y" or userChoice == "y":
-                return 0
-        
+                login()
+        t_end = time.process_time()
+        print("Process Time: ", t_end - t_start)
+        print("\n")
+    return browser
 
 ## ask user to type in login info
 def getCreditential():
@@ -67,3 +68,4 @@ def wantLogin():
     if choice == 'Y' or choice == 'y':
         return True
     return False
+
