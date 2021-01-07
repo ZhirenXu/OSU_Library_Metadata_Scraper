@@ -10,7 +10,6 @@ def findObjectTitle(source, valueList):
     try:
         h2 = tag.contents[1]
         #h2 is a list, format as: ['\\n', <h2>The Lantern, Ja...span></small>\n</h2>, '\\n']
-        print(h2.contents[0].string)
         value = h2.contents[0].string
     except:
         print("Fail to get record title!")
