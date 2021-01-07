@@ -3,9 +3,9 @@ import sys
 ## print program info
 def showInfo():
     print("******************************")
-    print("*  Metadata Scrapper v1.2.4  *")
+    print("*  Metadata Scrapper v1.2.5  *")
     print("*     Author: Zhiren Xu      *")
-    print("*  published data: 11/10/20  *")
+    print("*  published data: 01/07/20  *")
     print("******************************")
 
 ## print exit message

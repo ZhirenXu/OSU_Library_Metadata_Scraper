@@ -1,6 +1,6 @@
-## Metadata Scrapper v1.2.3
+## Metadata Scrapper v1.2.5
 Author: Zhiren Xu  
-Publish data: 9/1/20
+Publish data: 1/7/20
 
 ### What does it do
    OSU library has its digital collection repository, mainly contain scanned collections. This tool aim at scraping metadata from these records.
@@ -17,14 +17,10 @@ Publish data: 9/1/20
    Python ver. 3.8 or higher, other version has not been tested. 
    
    Required Package: 
-   
-      MechanicalSoup 
       
       BeautifulSoup 
       
-   If not installed, please type following command in CMD:
-   
-      pip install MechanicalSoup 
+   If not installed, please type following command in CMD: 
       
       pip install bs4  
       
