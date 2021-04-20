@@ -33,7 +33,7 @@ def findCategoryValue(source, liTagList, valueList, outFile):
                 valueList.append(content[:len(content)-1])        
                 content = ""
             elif len(result) == 1:
-                valueList.append(result[0].text)
+                valueList.append(result[0].text.strip())
             elif liTag != "id link":
                 valueList.append("null")
     SimpleCSV.writeCSV(valueList, outFile)
