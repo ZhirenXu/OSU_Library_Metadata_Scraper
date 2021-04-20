@@ -6,7 +6,7 @@ Publish data: 4/20/20
    OSU library has its digital collection repository, mainly contain scanned collections. This tool aim at scraping metadata from these records.
    
 ### Changelog
-   Add data sanitization for all fields
+   Add data sanitation for all fields
    
 ### Prerequisites
    Run in Windows10 environment. 
