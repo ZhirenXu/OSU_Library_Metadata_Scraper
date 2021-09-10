@@ -32,7 +32,7 @@ def findCategoryValue(source, liTagList, valueList, outFile):
                             content += rawContent    
                         content += '|'
                         result.pop(0)
-                valueList.append(content[:len(content)-1])        
+                valueList.append(content[:len(content)-1].strip())        
                 content = ""
             elif len(result) == 1:
                 valueList.append(result[0].text.strip())

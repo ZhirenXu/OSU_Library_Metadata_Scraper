@@ -1,4 +1,4 @@
-## Metadata Scrapper v1.2.8
+## Metadata Scrapper
 Author: Zhiren Xu  
 Publish data: 9/10/20
 
