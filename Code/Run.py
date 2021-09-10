@@ -39,6 +39,7 @@ def runProcessParallel(urlList, liTagList, outputFile, numOfUrl):
             soup = BeautifulSoup(html, 'html.parser', from_encoding = 'utf-8')
             # find collection title
             FindObjectTitle.findObjectTitle(soup, categoryValue)
+            #FindObjectTitle.findObjectVisibility(soup, categoryValue)
             # find original url link
             categoryValue.append(url)
             # find attributes value

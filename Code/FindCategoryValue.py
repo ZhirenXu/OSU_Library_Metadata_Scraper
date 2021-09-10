@@ -15,6 +15,8 @@ def findCategoryValue(source, liTagList, valueList, outFile):
         #append object title
         if liTag == "Title":
             FindObjectTitle.findObjectTitle(source, valueList)
+        elif liTag == "Visibility":
+            FindObjectTitle.findObjectVisibility(source, valueList)
         #other attributes
         elif liTag != "":
             result = source.findAll('li', attrs={'class': liTag})
