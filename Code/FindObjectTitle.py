@@ -16,3 +16,17 @@ def findObjectTitle(source, valueList):
     #value += tag.content[0].string
     valueList.append(value)
     value = ""
+
+def findObjectVisibility(source, valueList):
+    visibility = "null"
+    # delete front/back whitespace and add to valueList
+    tag = source.find("div", "col-sm-8")
+    try:
+        h2 = tag.contents[1]
+        smallTag = h2.contents[1]
+        spanTag = smallTag.contents[0]
+        visibility = spanTag.contents[0].string.strip()
+    except:
+        print("Fail to get record title!")
+    valueList.append(visibility)
+    visibility = ''

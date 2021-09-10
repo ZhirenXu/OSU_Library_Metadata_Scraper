@@ -1,12 +1,12 @@
-## Metadata Scrapper v1.2.7
+## Metadata Scrapper v1.2.6
 Author: Zhiren Xu  
-Publish data: 4/20/20
+Publish data: 4/15/20
 
 ### What does it do
    OSU library has its digital collection repository, mainly contain scanned collections. This tool aim at scraping metadata from these records.
    
 ### Changelog
-   Add data sanitation for all fields
+   Fix the bug that record work date cannot be scrapped
    
 ### Prerequisites
    Run in Windows10 environment. 
